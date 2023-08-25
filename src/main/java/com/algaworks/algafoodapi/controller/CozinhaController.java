@@ -1,0 +1,51 @@
+package com.algaworks.algafoodapi.controller;
+
+
+import com.algaworks.algafoodapi.domain.entity.Cozinha;
+import com.algaworks.algafoodapi.domain.repository.ICozinhaRepository;
+import com.algaworks.algafoodapi.service.CozinhaService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/cozinhas")
+public class CozinhaController {
+
+
+    @Autowired
+    private CozinhaService cozinhaService;
+
+    @GetMapping
+    public ResponseEntity<List<Cozinha>> listar(){
+        return  ResponseEntity.ok().body(cozinhaService.listar());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Cozinha> pegarUm(@PathVariable  Long id){
+        return  ResponseEntity.status(HttpStatus.FOUND).body(cozinhaService.pegar(id));
+    }
+
+    @PostMapping
+    public ResponseEntity<Cozinha> adicionar(@RequestBody Cozinha cozinha){
+        return ResponseEntity.status(HttpStatus.CREATED).body(cozinhaService.criar(cozinha));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Cozinha> atualizar(@PathVariable  Long id,@RequestBody Cozinha cozinha){
+
+        return ResponseEntity.status(HttpStatus.OK).body(cozinhaService.atualizar(id,cozinha));
+    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletar(@PathVariable  Long id){
+            cozinhaService.delete(id);
+            return ResponseEntity.noContent().build();
+
+    }
+
+}
