@@ -2,12 +2,15 @@ package com.algaworks.algafoodapi.domain.entity;
 
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -25,7 +28,9 @@ public class Cozinha  implements Serializable {
     private Long id;
     @Column(name = "nom_cozinha",length = 30)
     private String nome;
-
+    @JsonIgnore
+    @OneToMany(mappedBy = "cozinha")
+    private List<Restaurante> restaurantes = new ArrayList<>();
 
     public Cozinha(){}
 
