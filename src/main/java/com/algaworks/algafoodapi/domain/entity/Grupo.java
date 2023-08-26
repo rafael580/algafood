@@ -1,6 +1,8 @@
 package com.algaworks.algafoodapi.domain.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -9,20 +11,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "tab_forma_pagamento")
+@Table(name = "tab_grupo")
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class FormaPagamento  implements Serializable {
+public class Grupo  implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    private String nome;
 
+    @ManyToMany
+    private List<Permissao> permissaoes = new ArrayList<>();
 
-    @EqualsAndHashCode.Include
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String descricao;
+    public Grupo(){}
 
-    public FormaPagamento(){}
 }

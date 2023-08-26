@@ -1,12 +1,17 @@
 package com.algaworks.algafoodapi.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -25,15 +30,31 @@ public class Restaurante implements Serializable {
     private BigDecimal taxaFrete;
     private Boolean ativo;
     private Boolean aberto;
-    private Date dataCadastro;
-    private Date dataAtualizacao;
+
+    @CreationTimestamp
+    @Column(nullable = false,columnDefinition = "datetime")
+    private LocalDateTime dataCadastro;
+    @UpdateTimestamp
+    @Column(nullable = false,columnDefinition = "datetime")
+    private LocalDateTime dataAtualizacao;
 
     @ManyToOne
     @JoinColumn(name = "cozinha_id")
     private Cozinha cozinha;
 
-    @ManyToOne
-    private FormaPagamento formaPagamento;
+    @ManyToMany
+    @JoinTable(name = "restaurante_forma_pagamento," ,
+            joinColumns = @JoinColumn(name = "restaurante_id"),
+            inverseJoinColumns = @JoinColumn(name = "forma_pagamento_id"))
+    private List<FormaPagamento> formaPagamentos = new ArrayList<>();
+
+    @JsonIgnore
+    @Embedded
+    private Endereco endereco;
+
+    @OneToMany
+    List<Produto> produtos = new ArrayList<>();
+
 
     public Restaurante(){}
 
@@ -42,10 +63,9 @@ public class Restaurante implements Serializable {
                        BigDecimal taxaFrete,
                        Boolean ativo,
                        Boolean aberto,
-                       Date dataCadastro,
-                       Date dataAtualizacao,
-                       Cozinha cozinha,
-                       FormaPagamento formaPagamento) {
+                       LocalDateTime dataCadastro,
+                       LocalDateTime dataAtualizacao,
+                       Cozinha cozinha) {
         this.id = id;
         this.nome = nome;
         this.taxaFrete = taxaFrete;
@@ -54,6 +74,5 @@ public class Restaurante implements Serializable {
         this.dataCadastro = dataCadastro;
         this.dataAtualizacao = dataAtualizacao;
         this.cozinha = cozinha;
-        this.formaPagamento = formaPagamento;
     }
 }

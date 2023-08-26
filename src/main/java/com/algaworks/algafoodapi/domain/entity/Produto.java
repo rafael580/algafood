@@ -5,24 +5,29 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.math.BigDecimal;
+import java.util.function.BiConsumer;
 
 @Entity
-@Table(name = "tab_forma_pagamento")
+@Table(name = "tab_produto")
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class FormaPagamento  implements Serializable {
+public class Produto implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
-
 
     @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String descricao;
 
-    public FormaPagamento(){}
+    private String nome;
+    private String descricao;
+    private BigDecimal preco;
+    private Boolean ativo;
+    @ManyToOne
+    private Restaurante restaurante;
+
+    public Produto(){}
+
 }
