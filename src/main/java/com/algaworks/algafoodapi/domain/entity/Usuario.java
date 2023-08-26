@@ -1,18 +1,20 @@
 package com.algaworks.algafoodapi.domain.entity;
 
+
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "tab_grupo")
+@Table(name = "tab_usuario")
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Grupo  implements Serializable {
+public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -20,13 +22,13 @@ public class Grupo  implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-
     private String nome;
+    private String senha;
+    private LocalDateTime dataCadastro;
 
     @ManyToMany
-    private List<Permissao> permissaoes = new ArrayList<>();
+    private List<Grupo> grupos = new ArrayList<>();
 
-    public Grupo(){}
+    public Usuario(){}
 
 }
