@@ -22,3 +22,6 @@ INSERT into tab_restaurante (nome,taxa_frete,cozinha_id,data_cadastro,data_atual
 INSERT into tab_restaurante (nome,taxa_frete,cozinha_id,data_cadastro,data_atualizacao) VALUES ('tuk tuk comida',15,2,utc_timestamp,utc_timestamp);
 
 INSERT INTO `restaurante_forma_pagamento,` (`forma_pagamento_id`, `restaurante_id`) VALUES ('1', '1'), ('1', '2'),('1','3'),('3','1'),('2','1');
+
+
+update cidade c set c.estado_id = (select e.id from estado e where e.nome = c.nome_estado);

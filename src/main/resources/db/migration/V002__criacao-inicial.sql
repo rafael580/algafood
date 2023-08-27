@@ -1,7 +1,5 @@
- CREATE TABLE `cidade`(
+CREATE TABLE  `estado`(
   `id`      BIGINT          NOT NULL    AUTO_INCREMENT,
-    `nome_cidade`    VARCHAR(50)     NOT NULL,
-  	`nome_estado`    VARCHAR(50)     NOT NULL,
+  `nome`    VARCHAR(2)     NOT NULL,
 
-     PRIMARY KEY (`id`)
-  );
+  PRIMARY KEY (`id`));
