@@ -16,4 +16,4 @@ INSERT INTO cidade (id,nome,estado_id) VALUES (4,'gravatai',1);
 INSERT into restaurante (nome,taxa_frete,cozinha_id,data_cadastro,data_atualizacao) VALUES ('thai gourmet',10,1,utc_timestamp,utc_timestamp);
 INSERT into restaurante (nome,taxa_frete,cozinha_id,data_cadastro,data_atualizacao) VALUES ('thai delivery',9.50,1,utc_timestamp,utc_timestamp);
 INSERT into restaurante (nome,taxa_frete,cozinha_id,data_cadastro,data_atualizacao) VALUES ('tuk tuk comida',15,2,utc_timestamp,utc_timestamp);
-INSERT INTO `restaurante_forma_pagamento,` (`forma_pagamento_id`, `restaurante_id`) VALUES ('1', '1'), ('1', '2'),('1','3'),('3','1'),('2','1');
+INSERT INTO `restaurante_forma_pagamento` (`forma_pagamento_id`, `restaurante_id`) VALUES ('1', '1'), ('1', '2'),('1','3'),('3','1'),('2','1');
