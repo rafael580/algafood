@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 import java.util.function.BiConsumer;
 
 @Entity
-@Table(name = "tab_produto")
+@Table(name = "produto")
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Produto implements Serializable {

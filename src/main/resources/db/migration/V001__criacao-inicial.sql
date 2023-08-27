@@ -4,4 +4,3 @@ CREATE TABLE  `cozinha`(
 
   PRIMARY KEY (`id`));
 
-

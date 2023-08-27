@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "tab_permissao")
+@Table(name = "permissao")
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Permissao implements Serializable {

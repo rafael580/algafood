@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name="tab_cozinha")
+@Table(name="cozinha")
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Cozinha  implements Serializable {

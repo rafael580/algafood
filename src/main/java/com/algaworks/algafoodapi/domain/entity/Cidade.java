@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 
 @Entity
-@Table(name = "tab_cidade")
+@Table(name = "cidade")
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Cidade implements Serializable {

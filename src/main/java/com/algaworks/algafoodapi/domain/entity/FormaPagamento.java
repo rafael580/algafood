@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "tab_forma_pagamento")
+@Table(name = "forma_pagamento")
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class FormaPagamento  implements Serializable {

@@ -15,7 +15,7 @@ import java.util.List;
 
 
 @Entity
-@Table(name = "tab_restaurante")
+@Table(name = "restaurante")
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Restaurante implements Serializable {

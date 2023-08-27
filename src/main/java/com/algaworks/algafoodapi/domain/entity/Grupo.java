@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "tab_grupo")
+@Table(name = "grupo")
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Grupo  implements Serializable {
