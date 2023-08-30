@@ -1,12 +1,18 @@
 package com.algaworks.algafoodapi.domain.entity;
 
+import com.algaworks.algafoodapi.Groups;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PositiveOrZero;
+import jakarta.validation.groups.ConvertGroup;
+import jakarta.validation.groups.Default;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -26,7 +32,9 @@ public class Restaurante implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank// valid
     private String nome;
+    @PositiveOrZero //valid
     private BigDecimal taxaFrete;
     private Boolean ativo;
     private Boolean aberto;
@@ -43,6 +51,9 @@ public class Restaurante implements Serializable {
     @JoinColumn(name = "cozinha_id")
     private Cozinha cozinha;
 
+    @Valid
+    @ConvertGroup(from = Default.class, to = Groups.CadastroRestaurante.class)
+    @NotNull
     @ManyToMany //(fetch = FetchType.EAGER)
     @JoinTable(name = "restaurante_forma_pagamento" ,
             joinColumns = @JoinColumn(name = "restaurante_id"),

@@ -7,6 +7,7 @@ import com.algaworks.algafoodapi.service.exception.EntidadeNaoEncontrada;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -42,13 +43,17 @@ public class CozinhaService {
         return cozinhaRepository.save(cz);
     }
 
-
     public void delete(Long id){
         try {
             cozinhaRepository.deleteById(id);
 
-        }catch (DataIntegrityViolationException e){
-            throw new DataBaseIntegrety("Id not found" + id);
+        }
+        catch (EmptyResultDataAccessException e){
+            throw new EntidadeNaoEncontrada("entidade nao existe"+id);
+        }
+
+        catch (DataIntegrityViolationException e){
+            throw new DataBaseIntegrety("Integrety violation");
         }
     }
 

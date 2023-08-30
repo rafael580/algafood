@@ -4,6 +4,7 @@ package com.algaworks.algafoodapi.controller;
 import com.algaworks.algafoodapi.domain.entity.Cozinha;
 import com.algaworks.algafoodapi.domain.repository.ICozinhaRepository;
 import com.algaworks.algafoodapi.service.CozinhaService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
@@ -32,12 +33,12 @@ public class CozinhaController {
     }
 
     @PostMapping
-    public ResponseEntity<Cozinha> adicionar(@RequestBody Cozinha cozinha){
+    public ResponseEntity<Cozinha> adicionar(@Valid @RequestBody Cozinha cozinha){
         return ResponseEntity.status(HttpStatus.CREATED).body(cozinhaService.criar(cozinha));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Cozinha> atualizar(@PathVariable  Long id,@RequestBody Cozinha cozinha){
+    public ResponseEntity<Cozinha> atualizar(@PathVariable  Long id,@Valid @RequestBody Cozinha cozinha){
 
         return ResponseEntity.status(HttpStatus.OK).body(cozinhaService.atualizar(id,cozinha));
     }

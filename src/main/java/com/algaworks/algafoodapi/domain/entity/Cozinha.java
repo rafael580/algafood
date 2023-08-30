@@ -2,8 +2,11 @@ package com.algaworks.algafoodapi.domain.entity;
 
 
 
+import com.algaworks.algafoodapi.Groups;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -11,7 +14,6 @@ import lombok.EqualsAndHashCode;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Entity
 @Table(name="cozinha")
@@ -22,11 +24,12 @@ public class Cozinha  implements Serializable {
     private static final long serialVersionUID = 1L;
 
 
+    @NotNull(groups = Groups.CadastroRestaurante.class )
     @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "nom_cozinha",length = 30)
+    @NotBlank
     private String nome;
     @JsonIgnore
     @OneToMany(mappedBy = "cozinha")

@@ -1,14 +1,17 @@
 package com.algaworks.algafoodapi.controller;
 
+import com.algaworks.algafoodapi.Groups;
 import com.algaworks.algafoodapi.domain.entity.Restaurante;
 import com.algaworks.algafoodapi.domain.repository.IRestauranteRepository;
 import com.algaworks.algafoodapi.service.RestauranteService;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.validation.Valid;
 import org.apache.el.util.ReflectionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.ReflectionUtils;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.lang.reflect.Field;
@@ -39,7 +42,7 @@ public class RestauranteController {
 
 
     @PostMapping
-    public ResponseEntity<Restaurante> adicionar(@RequestBody  Restaurante restaurante){
+    public ResponseEntity<Restaurante> adicionar(@Valid @RequestBody   Restaurante restaurante){
             return  ResponseEntity.status(HttpStatus.CREATED).body(restauranteService.adicionar(restaurante));
     }
 
@@ -50,7 +53,7 @@ public class RestauranteController {
 
 
     @PatchMapping("/{id}")
-    public ResponseEntity<?> atualizarParcial(@PathVariable Long id,@RequestBody Map<String,Object> campos){
+    public ResponseEntity<?> atualizarParcial(@PathVariable Long id,@Valid @RequestBody Map<String,Object> campos){
 
         var restauranteAtual = restauranteService.pegar(id);
 
