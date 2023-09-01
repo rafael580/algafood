@@ -1,7 +1,7 @@
-package com.algaworks.algafoodapi.controller;
+package com.algaworks.algafoodapi.api.controller;
 
 import com.algaworks.algafoodapi.domain.entity.Cidade;
-import com.algaworks.algafoodapi.service.CidadeService;
+import com.algaworks.algafoodapi.api.service.CidadeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

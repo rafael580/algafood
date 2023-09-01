@@ -1,12 +1,10 @@
-package com.algaworks.algafoodapi.controller;
+package com.algaworks.algafoodapi.api.controller;
 
 
 import com.algaworks.algafoodapi.domain.entity.Cozinha;
-import com.algaworks.algafoodapi.domain.repository.ICozinhaRepository;
-import com.algaworks.algafoodapi.service.CozinhaService;
+import com.algaworks.algafoodapi.api.service.CozinhaService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -8,7 +8,6 @@ import jakarta.persistence.criteria.Root;
 import lombok.AllArgsConstructor;
 import org.springframework.data.jpa.domain.Specification;
 
-import java.math.BigDecimal;
 @AllArgsConstructor
 public class RestauranteComNomeSemelhanteSpec  implements Specification<Restaurante> {
 

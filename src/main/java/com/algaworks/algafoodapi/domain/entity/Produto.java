@@ -6,7 +6,6 @@ import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.function.BiConsumer;
 
 @Entity
 @Table(name = "produto")

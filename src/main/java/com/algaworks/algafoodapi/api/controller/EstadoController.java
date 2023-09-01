@@ -1,9 +1,7 @@
-package com.algaworks.algafoodapi.controller;
+package com.algaworks.algafoodapi.api.controller;
 
-import com.algaworks.algafoodapi.domain.entity.Cozinha;
 import com.algaworks.algafoodapi.domain.entity.Estado;
-import com.algaworks.algafoodapi.service.CozinhaService;
-import com.algaworks.algafoodapi.service.EstadoService;
+import com.algaworks.algafoodapi.api.service.EstadoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

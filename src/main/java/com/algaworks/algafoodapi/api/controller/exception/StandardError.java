@@ -1,4 +1,4 @@
-package com.algaworks.algafoodapi.controller.exception;
+package com.algaworks.algafoodapi.api.controller.exception;
 
 import lombok.Getter;
 import lombok.Setter;

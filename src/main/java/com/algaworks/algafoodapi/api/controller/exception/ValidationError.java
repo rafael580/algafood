@@ -1,4 +1,4 @@
-package com.algaworks.algafoodapi.controller.exception;
+package com.algaworks.algafoodapi.api.controller.exception;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.algaworks.algafoodapi.controller;
+package com.algaworks.algafoodapi.api.controller;
 
 import com.algaworks.algafoodapi.domain.entity.Restaurante;
 import com.algaworks.algafoodapi.domain.repository.IRestauranteRepository;

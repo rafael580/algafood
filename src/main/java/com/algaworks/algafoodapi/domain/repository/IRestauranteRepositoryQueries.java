@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface IRestauranteRepositoryQueries {
 
-    List<Restaurante> consultar(String nome, BigDecimal taxaFreteInicial,BigDecimal taxaFreteFinal);
+    List<Restaurante> consultar(String nome, BigDecimal taxaFreteInicial, BigDecimal taxaFreteFinal);
 
     List<Restaurante> findComFreteGratis(String nome);
 

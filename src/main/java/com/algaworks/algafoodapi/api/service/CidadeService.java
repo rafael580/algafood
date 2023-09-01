@@ -1,13 +1,9 @@
-package com.algaworks.algafoodapi.service;
+package com.algaworks.algafoodapi.api.service;
 
 import com.algaworks.algafoodapi.domain.entity.Cidade;
-import com.algaworks.algafoodapi.domain.entity.Cozinha;
-import com.algaworks.algafoodapi.domain.entity.Estado;
 import com.algaworks.algafoodapi.domain.repository.ICidadeReposiory;
-import com.algaworks.algafoodapi.domain.repository.ICozinhaRepository;
-import com.algaworks.algafoodapi.domain.repository.IEstadoRepository;
-import com.algaworks.algafoodapi.service.exception.DataBaseIntegrety;
-import com.algaworks.algafoodapi.service.exception.EntidadeNaoEncontrada;
+import com.algaworks.algafoodapi.api.service.exception.DataBaseIntegrety;
+import com.algaworks.algafoodapi.api.service.exception.EntidadeNaoEncontrada;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;

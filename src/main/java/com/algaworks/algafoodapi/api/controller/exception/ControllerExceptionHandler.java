@@ -1,12 +1,11 @@
-package com.algaworks.algafoodapi.controller.exception;
+package com.algaworks.algafoodapi.api.controller.exception;
 
 
-import com.algaworks.algafoodapi.service.exception.DataBaseIntegrety;
-import com.algaworks.algafoodapi.service.exception.EntidadeNaoEncontrada;
+import com.algaworks.algafoodapi.api.service.exception.DataBaseIntegrety;
+import com.algaworks.algafoodapi.api.service.exception.EntidadeNaoEncontrada;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
-import org.springframework.context.i18n.LocaleContext;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

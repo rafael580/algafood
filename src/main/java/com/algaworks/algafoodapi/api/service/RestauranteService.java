@@ -1,11 +1,10 @@
-package com.algaworks.algafoodapi.service;
+package com.algaworks.algafoodapi.api.service;
 
 import com.algaworks.algafoodapi.domain.entity.FormaPagamento;
 import com.algaworks.algafoodapi.domain.entity.Restaurante;
 import com.algaworks.algafoodapi.domain.repository.IFormaPagamento;
 import com.algaworks.algafoodapi.domain.repository.IRestauranteRepository;
-import com.algaworks.algafoodapi.service.exception.EntidadeNaoEncontrada;
-import org.springframework.beans.BeanUtils;
+import com.algaworks.algafoodapi.api.service.exception.EntidadeNaoEncontrada;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
