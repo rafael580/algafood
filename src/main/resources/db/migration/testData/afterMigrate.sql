@@ -1,5 +1,5 @@
 INSERT into cozinha (id,nome) VALUES (1,'tailandesa');
-INSERT into cozinha (id,nome) VALUES (2,'Indiana');
+INSERT into cozinha (id,nome) VALUES (2,'indiana');
 INSERT into cozinha (id,nome) VALUES (3,'mexicana');
 INSERT into cozinha (id,nome) VALUES (4,'arabe');
 INSERT into forma_pagamento (id,descricao) VALUES (1,'cartao debito');

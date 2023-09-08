@@ -46,7 +46,6 @@ public class CozinhaService {
     public void delete(Long id){
         try {
             cozinhaRepository.deleteById(id);
-
         }
         catch (EmptyResultDataAccessException e){
             throw new EntidadeNaoEncontrada("entidade nao existe"+id);
