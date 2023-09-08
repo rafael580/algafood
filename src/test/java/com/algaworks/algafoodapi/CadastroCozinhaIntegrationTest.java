@@ -2,25 +2,20 @@ package com.algaworks.algafoodapi;
 
 import com.algaworks.algafoodapi.api.service.CozinhaService;
 import com.algaworks.algafoodapi.api.service.exception.DataBaseIntegrety;
-import com.algaworks.algafoodapi.api.service.exception.EntidadeNaoEncontrada;
 import com.algaworks.algafoodapi.domain.entity.Cozinha;
 import jakarta.validation.ConstraintViolationException;
-import org.aspectj.apache.bcel.classfile.Constant;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 
 
 @SpringBootTest
 @Transactional
-class CadastroCozinhaIntegrationTests {
+class CadastroCozinhaIntegrationTest {
 
 	@Autowired
 	private CozinhaService cozinhaService;
