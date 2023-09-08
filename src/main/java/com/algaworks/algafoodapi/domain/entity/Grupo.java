@@ -25,7 +25,7 @@ public class Grupo  implements Serializable {
     private String nome;
 
     @ManyToMany
-    private List<Permissao> permissaoes = new ArrayList<>();
+    private List<Permissao> permissoes = new ArrayList<>();
 
     public Grupo(){}
 

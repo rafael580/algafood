@@ -4,6 +4,7 @@ package com.algaworks.algafoodapi;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import org.aspectj.lang.annotation.Before;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -21,10 +22,16 @@ public class CadastroCozinnhaTest {
     @LocalServerPort
     private int porta;
 
+    @Before("")
+    public void setUp(){
+        RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
+    }
+
+
     @Test
     public void deveRetornarStatus200QuandoConsultarCozinhas(){
 
-        RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
+
 
         RestAssured.given()
                 .basePath("/cozinhas")
@@ -39,8 +46,6 @@ public class CadastroCozinnhaTest {
     @Test
     public void deveContar4CozinhasQuandoConsultarCozinhas(){
 
-        RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
-
         RestAssured.given()
                 .basePath("/cozinhas")
                 .port(porta)
@@ -50,6 +55,21 @@ public class CadastroCozinnhaTest {
                 .then()
                 .body("nome", Matchers.hasSize(4))
                 .body("nome",Matchers.hasItems("indiana"));
+    }
+
+    @Test
+    public void deveRetornarStatus201_QuandoCadastrarCozinha(){
+        RestAssured.given()
+                .basePath("/cozinhas")
+                .port(porta)
+                .body("{ \"nome\": \"Chinesa\" }")
+                .contentType(ContentType.JSON)
+                .accept(ContentType.JSON)
+                .when()
+                .post()
+                .then()
+                .statusCode(HttpStatus.CREATED.value());
+
     }
 
 }

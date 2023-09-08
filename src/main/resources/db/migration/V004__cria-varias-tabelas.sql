@@ -8,7 +8,7 @@ id bigint not null auto_increment,
  nome varchar(255),
   primary key (id)) engine=InnoDB;
 
-create table grupo_permissaoes (
+create table grupo_permissoes (
 grupo_id bigint not null,
  permissaoes_id bigint not null) engine=InnoDB;
 

@@ -1,7 +1,7 @@
 alter table restaurante_produtos add constraint UK_oflwn902s6jtogedwka7vx954 unique (produtos_id);
 alter table cidade add constraint FKkworrwk40xj58kevvh3evi500 foreign key (estado_id) references estado (id);
-alter table grupo_permissaoes add constraint FKkxoyu5c56yekdgb1yg2it0h5v foreign key (permissaoes_id) references permissao (id);
-alter table grupo_permissaoes add constraint FK22h74nnf6h1paol3s3f997x0x foreign key (grupo_id) references grupo (id);
+alter table grupo_permissoes add constraint FKkxoyu5c56yekdgb1yg2it0h5v foreign key (permissaoes_id) references permissao (id);
+alter table grupo_permissoes add constraint FK22h74nnf6h1paol3s3f997x0x foreign key (grupo_id) references grupo (id);
 alter table produto add constraint FKb9jhjyghjcn25guim7q4pt8qx foreign key (restaurante_id) references restaurante (id);
 alter table restaurante add constraint FK76grk4roudh659skcgbnanthi foreign key (cozinha_id) references cozinha (id);
 alter table restaurante add constraint FKbc0tm7hnvc96d8e7e2ulb05yw foreign key (endereco_cidade_id) references cidade (id);

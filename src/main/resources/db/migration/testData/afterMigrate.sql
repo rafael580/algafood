@@ -1,3 +1,45 @@
+set foreign_key_checks = 0;
+
+lock tables cidade write, cozinha write, estado write, forma_pagamento write,
+	grupo write, grupo_permissoes write, permissao write,
+	produto write, restaurante write, restaurante_forma_pagamento write,
+	usuario write, usuario_grupos write,
+	pedido write, item_pedido write;
+
+
+delete from cidade;
+delete from cozinha;
+delete from estado;
+delete from forma_pagamento;
+delete from grupo;
+delete from permissao;
+delete from produto;
+delete from restaurante;
+delete from restaurante_forma_pagamento;
+delete from usuario;
+delete from usuario_grupos;
+delete from pedido;
+delete from item_pedido;
+delete from grupo_permissoes;
+
+set foreign_key_checks = 1;
+
+alter table cidade auto_increment = 1;
+alter table cozinha auto_increment = 1;
+alter table estado auto_increment = 1;
+alter table forma_pagamento auto_increment = 1;
+alter table grupo auto_increment = 1;
+alter table permissao auto_increment = 1;
+alter table produto auto_increment = 1;
+alter table restaurante auto_increment = 1;
+alter table usuario auto_increment = 1;
+alter table pedido auto_increment = 1;
+alter table item_pedido auto_increment = 1;
+
+
+
+
+
 INSERT into cozinha (id,nome) VALUES (1,'tailandesa');
 INSERT into cozinha (id,nome) VALUES (2,'indiana');
 INSERT into cozinha (id,nome) VALUES (3,'mexicana');
