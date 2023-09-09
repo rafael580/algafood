@@ -39,18 +39,21 @@ public class Restaurante implements Serializable {
     private Boolean ativo;
     private Boolean aberto;
 
+
     @CreationTimestamp
     @Column(nullable = false,columnDefinition = "datetime")
     private LocalDateTime dataCadastro;
+
     @UpdateTimestamp
     @Column(nullable = false,columnDefinition = "datetime")
     private LocalDateTime dataAtualizacao;
 
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "cozinha_id")
+
+    @ManyToOne
+    @JoinColumn(name = "cozinha_id", nullable = false)
     private Cozinha cozinha;
 
+    @JsonIgnore
     @Valid
     @ConvertGroup(from = Default.class, to = Groups.CadastroRestaurante.class)
     @NotNull
@@ -63,7 +66,7 @@ public class Restaurante implements Serializable {
     @JsonIgnore
     @Embedded
     private Endereco endereco;
-
+    @JsonIgnore
     @OneToMany
     List<Produto> produtos = new ArrayList<>();
 

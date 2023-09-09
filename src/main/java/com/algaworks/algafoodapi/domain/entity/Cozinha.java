@@ -24,12 +24,12 @@ public class Cozinha  implements Serializable {
     private static final long serialVersionUID = 1L;
 
 
-    @NotNull(groups = Groups.CadastroRestaurante.class )
+   // @NotNull(groups = Groups.CadastroRestaurante.class )
     @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotBlank
+ //   @NotBlank
     private String nome;
     @JsonIgnore
     @OneToMany(mappedBy = "cozinha")
